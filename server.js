@@ -6,9 +6,6 @@ const port = process.env.PORT || 3000;
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
-app.use((req, res, next) => {
-    res.render('maintanance');
-});
 app.use(express.static(__dirname + '/public'));
 
 
@@ -31,6 +28,11 @@ app.get('/', (req, res) => {
     res.render('home.hbs', {
         pageTitle: 'Home Page',
         welcomeMessage: 'Welcome to my website',
+    })
+});
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects'
     })
 });
 app.get('/about', (req, res) => {
